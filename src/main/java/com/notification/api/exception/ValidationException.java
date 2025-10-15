@@ -1,7 +1,5 @@
 package com.notification.api.exception;
 
-import lombok.Getter;
-
 public class ValidationException extends RuntimeException implements AbstractException {
 
     Integer statusCode;

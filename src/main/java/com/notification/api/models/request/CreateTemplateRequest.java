@@ -6,7 +6,8 @@ import lombok.Data;
 import java.util.Map;
 
 @Data
-public class TemplateRequest {
+public class
+CreateTemplateRequest {
 
     @NotBlank(message = "Name Field Is Required")
     private String name;
