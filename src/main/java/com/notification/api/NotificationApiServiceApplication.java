@@ -22,4 +22,9 @@ public class NotificationApiServiceApplication {
         // 5. Implement Service & Dao Layer
         // 6. Implement Create Template API
     }
+
+    void agendaPart3() {
+        // 5. Implement Generic Search API
+        // 6. Implement Template Filter API
+    }
 }

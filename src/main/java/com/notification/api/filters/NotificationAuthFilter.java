@@ -29,7 +29,7 @@ public class NotificationAuthFilter extends OncePerRequestFilter {
                 response.setStatus(HttpStatus.UNAUTHORIZED.value());
                 response.getWriter().write("UnAuthorized! API Key Is Required");
             }
-            NotificationContextHolder.setContext(new NotificationContext(xTenantId));
+            NotificationContextHolder.setContext(new NotificationContext(xTenantId, false));
         }
         filterChain.doFilter(request, response);
         if (isValidAPI(request.getRequestURI())) {

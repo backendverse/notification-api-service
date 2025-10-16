@@ -1,5 +1,6 @@
 package com.notification.api.utils;
 
+import com.notification.api.models.context.NotificationContextHolder;
 import org.springframework.util.ObjectUtils;
 
 import java.util.Calendar;
@@ -21,8 +22,12 @@ public final class CommonUtils {
         return ObjectUtils.isEmpty(input);
     }
 
-    public static UUID generateUUID(){
-       return UUID.randomUUID();
+    public static UUID generateUUID() {
+        return UUID.randomUUID();
+    }
+
+    public static String getCurrentTenantId() {
+        return NotificationContextHolder.getContext().tenantId();
     }
 
 }
