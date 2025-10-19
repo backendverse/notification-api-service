@@ -22,8 +22,8 @@ public final class CommonUtils {
         return ObjectUtils.isEmpty(input);
     }
 
-    public static UUID generateUUID() {
-        return UUID.randomUUID();
+    public static String generateUUID() {
+        return UUID.randomUUID().toString();
     }
 
     public static String getCurrentTenantId() {

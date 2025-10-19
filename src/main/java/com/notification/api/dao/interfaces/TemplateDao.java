@@ -11,7 +11,11 @@ public interface TemplateDao {
 
     Optional<Template> findByTenantIdAndName(String tenantId, String templateName);
 
+    Optional<Template> findByTenantIdAndId(String tenantId, String id);
+
     Template save(Template template);
 
     Page<Template> filterTemplate(Example<Template> templateExample, PageRequest pageRequest);
+
+    void deleteTemplateById(String id);
 }

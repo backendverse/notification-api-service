@@ -155,11 +155,23 @@ com.backendverse.notificationapi
 | **Audit Service**                               | Persists all notification audit logs for tracking                     |
 
 ---
+## 🧪 Import Postman Collection
+
+I have already included the Postman Collection file in this repo:
+**`Scalable Notification Service.postman_collection.json`**
+
+Follow these steps:
+
+1. Open **Postman**.
+2. Click on **Import** (top-left corner).
+3. Select the file → `Scalable Notification Service.postman_collection.json`.
+4. Done ✅ Now you can directly test APIs without writing cURL.
+
+---
 
 ## 🧑‍💻 Author
 
-**BackendVerse**
-🎥 YouTube: [BackendVerse](https://www.youtube.com/@backendverse)
+🎥 YouTube: [BackendVerse](https://www.youtube.com/@backendverse)   
 💬 Learn to build real-world backend systems with Spring Boot, Kafka & System Design (in Hindi)
 
 ---

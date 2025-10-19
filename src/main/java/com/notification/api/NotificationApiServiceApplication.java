@@ -10,6 +10,13 @@ public class NotificationApiServiceApplication {
         SpringApplication.run(NotificationApiServiceApplication.class, args);
     }
 
+    void pending() {
+        // Implement Strict Validation
+        // 1. Input Dynamic Variables
+        // 2. Input Template
+        // 3. Input Ids
+    }
+
     void agendaPart1() {
         // 1. packages
         // 2. Implement Abstract Generic Global Exception Handler
@@ -26,5 +33,10 @@ public class NotificationApiServiceApplication {
     void agendaPart3() {
         // 5. Implement Generic Search API
         // 6. Implement Template Filter API
+    }
+
+    void agendaPart4() {
+        // Implement Update Template API
+        // Implement Delete Template API
     }
 }

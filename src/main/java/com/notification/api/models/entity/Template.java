@@ -12,10 +12,10 @@ import java.util.UUID;
 @Document(collection = "templates")
 public class Template extends AbstractEntity {
 
-    private UUID id;
+    private String id;
     private String name;
     private Map<String, String> templateVariables;
     private String messageTemplate;
-    private UUID tenantId;
+    private String tenantId;
 
 }

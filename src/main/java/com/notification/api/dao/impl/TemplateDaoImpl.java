@@ -22,7 +22,12 @@ class TemplateDaoImpl implements TemplateDao {
 
     @Override
     public Optional<Template> findByTenantIdAndName(final String tenantId, final String templateName) {
-        return templateRepository.findByNameIgnoreCaseAndTenantId(templateName, UUID.fromString(tenantId));
+        return templateRepository.findByNameIgnoreCaseAndTenantId(templateName, tenantId);
+    }
+
+    @Override
+    public Optional<Template> findByTenantIdAndId(final String tenantId, final String id) {
+        return templateRepository.findByIdAndTenantId(id, tenantId);
     }
 
     @Override
@@ -33,6 +38,11 @@ class TemplateDaoImpl implements TemplateDao {
     @Override
     public Page<Template> filterTemplate(final Example<Template> example,
                                          final PageRequest pageRequest) {
-       return templateRepository.findAll(example, pageRequest);
+        return templateRepository.findAll(example, pageRequest);
+    }
+
+    @Override
+    public void deleteTemplateById(final String id) {
+        templateRepository.deleteById(id);
     }
 }

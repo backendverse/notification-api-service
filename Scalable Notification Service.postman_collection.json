@@ -1,0 +1,170 @@
+{
+	"info": {
+		"_postman_id": "aed50f64-12c8-4228-a139-c9d6d94f989e",
+		"name": "Scalable Notification Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47473242",
+		"_collection_link": "https://developeryt01-7284073.postman.co/workspace/Learn-With-Developer's-Workspac~9db7ae3f-5ed0-4806-8f2a-bb7ddc626ae8/collection/47473242-aed50f64-12c8-4228-a139-c9d6d94f989e?action=share&source=collection_link&creator=47473242"
+	},
+	"item": [
+		{
+			"name": "Create Template API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "x-tenant-id",
+						"value": "e044ab0f-9984-4198-8ffb-1dc255c209e6",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Subscription Expiry Template\",\n    \"templateVariables\": {\n        \"USER_NAME\": \"userName\",\n        \"USER_EMAIL\": \"userEmail\",\n        \"USER_PHONE\": \"userPhone\"\n    },\n    \"messageTemplate\": \"<!doctype html><html lang=\\\"en\\\"><head><meta charset=\\\"utf-8\\\" /><meta name=\\\"viewport\\\" content=\\\"width=device-width,initial-scale=1\\\" /><title>Subscription Expiry</title><style>body { margin:0; padding:0; background:#f4f6f8; font-family: Arial, sans-serif; -webkit-text-size-adjust:100%; } .container { max-width:600px; margin:28px auto; background:#ffffff; border-radius:8px; overflow:hidden; box-shadow:0 2px 6px rgba(0,0,0,0.08); } .header { padding:18px; background:linear-gradient(90deg,#4f46e5,#06b6d4); color:#fff; text-align:center; } .content { padding:20px; color:#111827; font-size:15px; line-height:1.5; } .cta { display:inline-block; margin:16px 0; padding:12px 20px; background:#111827; color:#fff; text-decoration:none; border-radius:6px; } .small { color:#6b7280; font-size:13px; } .footer { padding:14px 20px; font-size:13px; color:#6b7280; text-align:center; } @media (max-width:420px){ .container{ margin:12px; } .content{ padding:16px; } }</style></head><body><div style=\\\"display:none;max-height:0;overflow:hidden;\\\">Your subscription is expiring soon — renew now to avoid interruption.</div><table role=\\\"presentation\\\" width=\\\"100%\\\" cellpadding=\\\"0\\\" cellspacing=\\\"0\\\"><tr><td align=\\\"center\\\"><div class=\\\"container\\\" role=\\\"article\\\" aria-label=\\\"Subscription expiry notification\\\"><div class=\\\"header\\\"><h2 style=\\\"margin:0;font-size:20px;\\\">Subscription Expiry Notice</h2></div><div class=\\\"content\\\"><p style=\\\"margin:0 0 12px 0;\\\">Hi <strong>{{USER_NAME}}</strong>,</p><p style=\\\"margin:0 0 12px 0;\\\">We wanted to let you know that your subscription is <strong>about to expire</strong>. To avoid interruption of service, please renew your subscription.</p><p style=\\\"margin:0 0 12px 0;\\\"><a href=\\\"https://example.com/renew\\\" class=\\\"cta\\\" target=\\\"_blank\\\" rel=\\\"noopener\\\">Renew My Subscription</a></p><p class=\\\"small\\\" style=\\\"margin:0 0 12px 0;\\\">If you have any questions, reply to this email or contact us at:</p><p class=\\\"small\\\" style=\\\"margin:0 0 6px 0;\\\">Email: <a href=\\\"mailto:{{USER_EMAIL}}\\\">{{USER_EMAIL}}</a><br />Phone: <a href=\\\"tel:{{USER_PHONE}}\\\">{{USER_PHONE}}</a></p><p class=\\\"small\\\" style=\\\"margin-top:14px;\\\">Thank you,<br/>The Example Team</p></div><div class=\\\"footer small\\\">You’re receiving this message because you have an active account with us. If you don’t want these emails, you can manage your preferences in your account.</div></div></td></tr></table></body></html>\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/template",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"template"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Filter Template API",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "x-tenant-id",
+						"value": "e044ab0f-9984-4198-8ffb-1dc255c209e7"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/template?page=0&size=2&name=&sortRequest.sortKey=name&sortRequest.sortType=ASC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"template"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "2"
+						},
+						{
+							"key": "name",
+							"value": ""
+						},
+						{
+							"key": "sortRequest.sortKey",
+							"value": "name"
+						},
+						{
+							"key": "sortRequest.sortType",
+							"value": "ASC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Template",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "x-tenant-id",
+						"value": "e044ab0f-9984-4198-8ffb-1dc255c209e6"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"operation updated new testing template\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/template/1755fcdf-07b0-4183-877e-c1af96b2c5f8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"template",
+						"1755fcdf-07b0-4183-877e-c1af96b2c5f8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Template",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "x-tenant-id",
+						"value": "e044ab0f-9984-4198-8ffb-1dc255c209e6"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/template/1755fcdf-07b0-4183-877e-c1af96b2c5f8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"template",
+						"1755fcdf-07b0-4183-877e-c1af96b2c5f8"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
