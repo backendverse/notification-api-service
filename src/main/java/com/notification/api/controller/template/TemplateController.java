@@ -1,4 +1,4 @@
-package com.notification.api.controller;
+package com.notification.api.controller.template;
 
 import com.notification.api.models.request.CreateUpdateTemplateRequest;
 import com.notification.api.models.request.TemplateFilterRequest;

@@ -51,7 +51,7 @@ class TemplateServiceImpl implements TemplateService {
 
     @Override
     public FilterTemplateResponse filterTemplate(TemplateFilterRequest request) {
-        NotificationContextHolder.ignoreTenantIdInjection();
+//        NotificationContextHolder.ignoreTenantIdInjection();
         Page<Template> templates = templateDao.filterTemplate(request.buildSearch(), request.buildPageRequest());
         List<TemplateResponseDTO> data = templates.stream().map(TemplateResponseDTO::new).toList();
         return new FilterTemplateResponse(data, templates.hasNext(), templates.getTotalElements());

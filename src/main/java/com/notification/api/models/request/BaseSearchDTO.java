@@ -82,7 +82,7 @@ public abstract class BaseSearchDTO<T> {
         try {
             Field tenantIdField = getField(instance.getClass(), "tenantId");
             tenantIdField.setAccessible(true);
-            tenantIdField.set(instance, UUID.fromString(getCurrentTenantId()));
+            tenantIdField.set(instance, getCurrentTenantId());
         } catch (IllegalAccessException e) {
             throw new ValidationException("Error While Setting Tenant Id In Search Builder", HttpStatus.BAD_REQUEST.value());
         }

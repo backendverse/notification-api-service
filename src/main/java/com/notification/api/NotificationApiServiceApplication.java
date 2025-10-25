@@ -39,4 +39,14 @@ public class NotificationApiServiceApplication {
         // Implement Update Template API
         // Implement Delete Template API
     }
+
+    void agendaPart5() {
+        // Implement Send Notification API
+        // If Validation Failed Send To Audit Topic
+        // If Validation Passed Sent To Ingest Topic
+    }
+
+    void agendaPart6(){
+        // Implement Generic Publisher, Which rely on Abstraction To For Publisher/Fallback
+    }
 }
