@@ -46,7 +46,12 @@ public class NotificationApiServiceApplication {
         // If Validation Passed Sent To Ingest Topic
     }
 
-    void agendaPart6(){
+    void agendaPart6() {
         // Implement Generic Publisher, Which rely on Abstraction To For Publisher/Fallback
+    }
+
+    void agendaPart7() {
+        // Design Generic Publisher With Dynamic Control & Using It In Our Code
+        // Understanding Logging Pattern
     }
 }

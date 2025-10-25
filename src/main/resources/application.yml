@@ -1,0 +1,11 @@
+messaging:
+  providers:
+    kafka:
+      enabled: false
+    aws:
+      enabled: true
+  fallback:
+    rabbitmq:
+      enabled: true
+    mqtt:
+      enabled: false
