@@ -1,9 +1,14 @@
 package com.notification.api.pubsub.publisher;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.notification.api.config.ApplicationProperties;
+import com.notification.api.exception.ValidationException;
 import com.notification.api.pubsub.fallback.GenericFallbackPublisher;
 import com.notification.api.pubsub.primary.GenericProvider;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +21,18 @@ class GenericPublisherImpl implements GenericPublisher {
 
     private final List<GenericProvider> genericPublishers;
     private final List<GenericFallbackPublisher> genericFallbackPublishers;
+    private ObjectMapper mapper;
+    private ApplicationProperties properties;
+
+    @Override
+    public void sendDataToIngest(final Object input) {
+        sendNotification(properties.getIngestTopic(), convertDataIntoString(input));
+    }
+
+    @Override
+    public void sendDataToAudit(final Object input) {
+        sendNotification(properties.getAuditTopic(), convertDataIntoString(input));
+    }
 
 
     @Override
@@ -52,6 +69,15 @@ class GenericPublisherImpl implements GenericPublisher {
             }
         });
 
+    }
+
+    private String convertDataIntoString(final Object input) {
+        try {
+            return mapper.writeValueAsString(input);
+        } catch (JsonProcessingException e) {
+            throw new ValidationException("Error while parsing input payload",
+                    HttpStatus.INTERNAL_SERVER_ERROR.value());
+        }
     }
 
 

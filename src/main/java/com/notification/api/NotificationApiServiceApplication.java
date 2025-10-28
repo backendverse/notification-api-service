@@ -54,4 +54,11 @@ public class NotificationApiServiceApplication {
         // Design Generic Publisher With Dynamic Control & Using It In Our Code
         // Understanding Logging Pattern
     }
+
+    void agendaPart8() {
+        // Create Customized bean Of ObjectMapper
+        // Create Common Methods Inside Generic Publisher To Avoid Extra Publishing Overhead
+        // Trigger Kafka Send - Topic {notification.ingest}
+        // Trigger Kafka Send - Topic {notification.audit} - Pending For Audit Implementation
+    }
 }
