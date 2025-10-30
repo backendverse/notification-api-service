@@ -78,8 +78,8 @@ class TemplateServiceImpl implements TemplateService {
 
     @Override
     public void deleteTemplate(final String id) {
-        getTemplateForCurrentTenant(id);
-        templateDao.deleteTemplateById(id);
+        templateDao.deleteTemplateById(id, () -> new ValidationException(TEMPLATE_NOT_EXISTS_WITH_ID_ERROR,
+                HttpStatus.BAD_REQUEST.value()));
     }
 
     private Template getTemplateForCurrentTenant(final String id) {

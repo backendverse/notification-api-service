@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
 import java.util.Optional;
+import java.util.function.Supplier;
 
 public interface TemplateDao {
 
@@ -17,5 +18,5 @@ public interface TemplateDao {
 
     Page<Template> filterTemplate(Example<Template> templateExample, PageRequest pageRequest);
 
-    void deleteTemplateById(String id);
+    void deleteTemplateById(String id, Supplier<? extends Throwable> exceptionHandler);
 }

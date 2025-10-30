@@ -61,4 +61,8 @@ public class NotificationApiServiceApplication {
         // Trigger Kafka Send - Topic {notification.ingest}
         // Trigger Kafka Send - Topic {notification.audit} - Pending For Audit Implementation
     }
+
+    void agendaPart9() {
+        // Implementing Cache Using {Redis Hash} To Reduce DB Load
+    }
 }
