@@ -65,4 +65,12 @@ public class NotificationApiServiceApplication {
     void agendaPart9() {
         // Implementing Cache Using {Redis Hash} To Reduce DB Load
     }
+
+    void agendaPart10() {
+        // Implement Redis Configuration For Global TTL Expiry
+        // Implement Redis Connection Validation At Application Startup
+        // Implement Mongo Connection Validation At Application Startup
+        // Implement Validation For Kafka At Application Startup
+    }
+
 }
