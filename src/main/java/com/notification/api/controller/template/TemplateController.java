@@ -1,6 +1,6 @@
 package com.notification.api.controller.template;
 
-import com.notification.api.models.request.CreateUpdateTemplateRequest;
+import com.notification.api.models.request.CreateTemplateRequest;
 import com.notification.api.models.request.TemplateFilterRequest;
 import com.notification.api.models.request.UpdateTemplateRequest;
 import com.notification.api.models.response.FilterTemplateResponse;
@@ -20,7 +20,7 @@ public class TemplateController {
     private final TemplateService templateService;
 
     @PostMapping
-    public ResponseEntity<TemplateResponse> createTemplate(@Valid @RequestBody CreateUpdateTemplateRequest request) {
+    public ResponseEntity<TemplateResponse> createTemplate(@Valid @RequestBody CreateTemplateRequest request) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(templateService.createTemplate(request));

@@ -73,4 +73,24 @@ public class NotificationApiServiceApplication {
         // Implement Validation For Kafka At Application Startup
     }
 
+    void bugFixingAndValidation() {
+
+//        ---------Global Exception Handler---------
+//        Null pointer when only constructing with string
+//        ---------Global Exception Handler---------
+
+//          ---------Filter Level---------
+//          Send 403 when tenantId is missing
+//          ---------Filter Level---------
+
+//        ---------Create template API---------
+//        CreateTemplateRequest,UpdateTemplateRequest -> templateVariables, messageTemplate - size
+//        ---------Create template API---------
+
+//        ---------Notification API---------
+//        send notification API -  validate template variables
+//        notification type - validate required field
+//        ---------Notification API---------
+    }
+
 }

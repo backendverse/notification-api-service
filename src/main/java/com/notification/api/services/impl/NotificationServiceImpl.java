@@ -13,7 +13,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 
 import static com.notification.api.constants.ErrorConstants.TEMPLATE_NOT_EXISTS_WITH_ID_ERROR;
 
@@ -34,15 +36,26 @@ public class NotificationServiceImpl implements NotificationService {
             throw new ValidationException(TEMPLATE_NOT_EXISTS_WITH_ID_ERROR, HttpStatus.BAD_REQUEST.value());
         }
 
+        byTenantIdAndId.ifPresent(template -> {
+            Map<String, Object> requestDynamicVariables = request.getDynamicVariables();
+            if (template.getTemplateVariables().size() != requestDynamicVariables.size()
+                    || template.getTemplateVariables().values().stream()
+                    .anyMatch(variable -> !requestDynamicVariables.containsKey(variable))) {
+                throw new ValidationException("Invalid Dynamic Variables");
+            }
+        });
+
         IngestTopicDTO ingestTopicDTO = new IngestTopicDTO();
         ingestTopicDTO.setRequestId(CommonUtils.getCurrentTraceId());
         ingestTopicDTO.setTenantId(CommonUtils.getCurrentTenantId());
         ingestTopicDTO.setReceivedAt(CommonUtils.getCurrentTimeStamp());
-        ingestTopicDTO.setTemplateId(request.getTemplateId());
         ingestTopicDTO.setDynamicVariables(request.getDynamicVariables());
+        ingestTopicDTO.setTemplateId(request.getTemplateId());
         ingestTopicDTO.setNotificationType(request.getNotificationType());
 
+
         genericPublisher.sendDataToIngest(ingestTopicDTO);
+
     }
 
 }

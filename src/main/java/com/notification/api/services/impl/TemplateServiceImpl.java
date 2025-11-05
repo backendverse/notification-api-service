@@ -2,9 +2,8 @@ package com.notification.api.services.impl;
 
 import com.notification.api.dao.interfaces.TemplateDao;
 import com.notification.api.exception.ValidationException;
-import com.notification.api.models.context.NotificationContextHolder;
 import com.notification.api.models.entity.Template;
-import com.notification.api.models.request.CreateUpdateTemplateRequest;
+import com.notification.api.models.request.CreateTemplateRequest;
 import com.notification.api.models.request.TemplateFilterRequest;
 import com.notification.api.models.request.UpdateTemplateRequest;
 import com.notification.api.models.response.FilterTemplateResponse;
@@ -19,7 +18,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 import static com.notification.api.constants.ErrorConstants.TEMPLATE_ALREADY_EXISTS_ERROR;
 import static com.notification.api.constants.ErrorConstants.TEMPLATE_NOT_EXISTS_WITH_ID_ERROR;
@@ -33,7 +31,7 @@ class TemplateServiceImpl implements TemplateService {
     private final TemplateDao templateDao;
 
     @Override
-    public TemplateResponse createTemplate(CreateUpdateTemplateRequest request) {
+    public TemplateResponse createTemplate(final CreateTemplateRequest request) {
 //        NotificationContext context = NotificationContextHolder.getContext();
 
         templateDao.findByTenantIdAndName(getCurrentTenantId(), request.getName()).ifPresent(template -> {

@@ -16,7 +16,7 @@ public class ResourceNotFoundException extends RuntimeException implements Abstr
     }
 
     @Override
-    public int getStatusCode() {
+    public Integer getStatusCode() {
         return statusCode;
     }
 

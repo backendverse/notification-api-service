@@ -14,7 +14,7 @@ public class ValidationException extends RuntimeException implements AbstractExc
     }
 
     @Override
-    public int getStatusCode() {
+    public Integer getStatusCode() {
         return statusCode;
     }
 
