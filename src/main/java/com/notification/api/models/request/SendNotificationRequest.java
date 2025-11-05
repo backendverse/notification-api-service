@@ -20,11 +20,11 @@ public class SendNotificationRequest {
 
     @AssertTrue
     public boolean validateNotificationType() {
-        if (CommonUtils.isNotEmpty(notificationType)) {
+        if (CommonUtils.isEmpty(notificationType)) {
             throw new ValidationException(NOTIFICATION_TYPE_VARIABLE_ERROR);
         }
 
-        if (CommonUtils.isNotEmpty(dynamicVariables)) {
+        if (CommonUtils.isEmpty(dynamicVariables)) {
             throw new ValidationException(SEND_NOTIFICATION_TEMPLATE_VARIABLE_ERROR);
         }
         return true;
