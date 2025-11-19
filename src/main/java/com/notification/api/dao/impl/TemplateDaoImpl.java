@@ -12,7 +12,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.UUID;
 import java.util.function.Supplier;
 
 import static com.notification.api.utils.CommonUtils.getCurrentTenantId;
@@ -24,7 +23,7 @@ import static com.notification.api.utils.CommonUtils.isNotEmpty;
 class TemplateDaoImpl implements TemplateDao {
 
     private final TemplateRepository templateRepository;
-    private CacheService cacheService;
+    private final CacheService cacheService;
 
     @Override
     public Optional<Template> findByTenantIdAndName(final String tenantId, final String templateName) {

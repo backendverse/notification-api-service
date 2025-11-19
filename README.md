@@ -148,11 +148,11 @@ com.backendverse.notificationapi
 
 ## 🧩 Related Services
 
-| Service                                         | Role                                                                  |
-| ----------------------------------------------- | --------------------------------------------------------------------- |
-| **Notification Processor Service**              | Consumes from `notification.ingest`, enriches, and routes to channels |
-| **Channel Worker Services (Email/SMS/Webhook)** | Delivers messages to external APIs                                    |
-| **Audit Service**                               | Persists all notification audit logs for tracking                     |
+| Service                                                                                              | Role                                                                  |
+|------------------------------------------------------------------------------------------------------| --------------------------------------------------------------------- |
+| **[Notification Processor Service](https://github.com/backendverse/notification-processor-service)** | Consumes from `notification.ingest`, enriches, and routes to channels |
+| **Channel Worker Services (Email/SMS/Webhook)**                                                      | Delivers messages to external APIs                                    |
+| **Audit Service**                                                                                    | Persists all notification audit logs for tracking                     |
 
 ---
 ## 🧪 Import Postman Collection
