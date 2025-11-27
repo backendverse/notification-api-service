@@ -2,7 +2,9 @@ package com.notification.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
+@ComponentScan({"com.notification.api", "com.common.sdk"})
 @SpringBootApplication
 public class NotificationApiServiceApplication {
 
@@ -91,6 +93,14 @@ public class NotificationApiServiceApplication {
 //        send notification API -  validate template variables
 //        notification type - validate required field
 //        ---------Notification API---------
+    }
+
+    void agendaPart11() {
+        // Enable Global SDK
+        // Remove MDC From Filter
+        // Refactor Base Exception Handler
+        // Refactor Controllers For Generic Response
+        // Then we'll test the apiResponse Structure
     }
 
 }

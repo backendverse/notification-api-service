@@ -1,45 +1,40 @@
 package com.notification.api.exception.handler;
 
+import com.common.sdk.models.enums.APIResponseCode;
+import com.common.sdk.models.interfaces.GenericAPIResponse;
+import com.common.sdk.services.ResponseHandler;
 import com.notification.api.exception.AbstractException;
 import com.notification.api.exception.ResourceNotFoundException;
 import com.notification.api.exception.ValidationException;
 import com.notification.api.utils.CommonUtils;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.FieldError;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Objects;
 import java.util.function.Supplier;
 
+@RequiredArgsConstructor
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Map<String, String>> handleMethodArgumentNotValidException(
-            MethodArgumentNotValidException ex) {
-        Map<String, String> errors = new HashMap<>();
-        for (FieldError error : ex.getBindingResult().getFieldErrors()) {
-            errors.put(error.getField(), error.getDefaultMessage());
-        }
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errors);
-    }
+    private final ResponseHandler responseHandler;
 
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(ValidationException.class)
-    public ResponseEntity<String> handleValidationException(ValidationException exception) {
-        return genericExceptionHandler(
-                exception,
-                () -> ResponseEntity.badRequest().body(exception.getMessage()));
+    public GenericAPIResponse<Void> handleValidationException(ValidationException exception) {
+        return responseHandler.failure(Objects.requireNonNullElse(exception.getStatusCode(),
+                APIResponseCode.BAD_REQUEST.getCode()), exception.getMessage());
     }
 
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<String> handleResourceNotException(ResourceNotFoundException exception) {
-        return genericExceptionHandler(
-                exception,
-                () -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage()));
+    public GenericAPIResponse<Void> handleResourceNotException(ResourceNotFoundException exception) {
+        return responseHandler.failure(Objects.requireNonNullElse(exception.getStatusCode(),
+                APIResponseCode.BAD_REQUEST.getCode()), exception.getMessage());
     }
 
     public ResponseEntity<String> genericExceptionHandler(final AbstractException exception,
